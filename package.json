@@ -5,11 +5,12 @@
   "main": "index.js",
   "scripts": {
     "init:tsc": "tsc --init",
-    "start":  "concurrently npm:dev:*",
-    "tsc":"tsc src/teaching/1ClassDecorator.ts  --target ES5 -w --experimentalDecorators",
+    "exec": "ts-node src/class-decorator1-with-param.ts",
+    "start": "concurrently npm:dev:*",
+    "tsc": "tsc src/class-decorator1-with-param.ts  --target ES5 -w --experimentalDecorators",
     "dev:build": "tsc -w",
-    "dev:start":"nodemon --watch dist/teaching js --exec node ./dist/teaching/1ClassDecorator.js",
-    "ctrl":"ts-node src/controller/HomeController.ts",
+    "dev:start": "nodemon --watch dist js --exec node ./dist/class-decorator1-with-param.js",
+    "ctrl": "ts-node src/controller/HomeController.ts",
     "beginapp": "nodemon --watch src/ -e ts --exec ts-node ./src/expressapp.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -20,6 +21,7 @@
     "concurrently": "^7.3.0"
   },
   "devDependencies": {
+    "ts-node": "^10.9.1",
     "typescript": "^4.7.4"
   }
 }
