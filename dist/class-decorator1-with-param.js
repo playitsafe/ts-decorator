@@ -9,10 +9,12 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-function FirstClassDecorator(targetClass) {
-    var targetObj = new targetClass();
-    targetObj.buy();
-    console.log("targetClass.name:", targetClass.name);
+function FirstClassDecorator(param) {
+    console.log('decor param: ', param);
+    return function (targetClass) {
+        var targetObj = new targetClass();
+        targetObj.buy();
+    };
 }
 var CustomerService = /** @class */ (function () {
     function CustomerService() {
@@ -25,7 +27,7 @@ var CustomerService = /** @class */ (function () {
         console.log(this.name + "下单购买");
     };
     CustomerService = __decorate([
-        FirstClassDecorator,
+        FirstClassDecorator('I\'m decorator param'),
         __metadata("design:paramtypes", [])
     ], CustomerService);
     return CustomerService;
